@@ -12,10 +12,10 @@ function App() {
   const handleOnChange = (event) => {
     const value = event.target.value
     setSearchValue(value)
-    limitedApiRequest(value)
+    _getTimezoneByNameLimited(value)
   }
 
-  const limitedApiRequest = debounce((val) => getTimezoneByName(val), 300)
+  const _getTimezoneByNameLimited = debounce((val) => getTimezoneByName(val), 500)
 
   const getTimezoneByName = async value => {
     const response = await fetch(`http://localhost:7200/?q=${value}`)
